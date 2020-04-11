@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.UI
 {
-    public class DraggableUI : MonoBehaviour, IDragHandler
+    public class DraggableUI : MonoBehaviour, IDragHandler, IPointerDownHandler
     {
         [SerializeField] private RectTransform panelParent;
 
@@ -14,16 +14,9 @@ namespace Assets.Scripts.UI
             panelParent.anchoredPosition += eventData.delta;
         }
 
-        // Start is called before the first frame update
-        void Start()
+        public void OnPointerDown(PointerEventData eventData)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            panelParent.SetAsLastSibling();
         }
     }
 }

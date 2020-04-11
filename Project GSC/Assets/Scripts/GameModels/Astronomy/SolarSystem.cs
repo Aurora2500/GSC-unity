@@ -18,7 +18,7 @@ namespace Assets.Scripts.GameModels.Astronomy
         public Galaxy galaxy;
 
         public List<Planet> planets;
-        private int systemSize;
+        public int Size { get => planets.Count; }
 
         public List<int> linkedSystemIndex;
         public Dictionary<int, Link> links;
@@ -45,6 +45,7 @@ namespace Assets.Scripts.GameModels.Astronomy
                 LinkWithStarIndex(laneIndex);
             }
 
+            planets = new List<Planet>();
 
             Render();
         }
@@ -65,6 +66,20 @@ namespace Assets.Scripts.GameModels.Astronomy
             }
 
             Position = new Vector3(data.position[0], data.position[1], data.position[2]);
+
+            planets = new List<Planet>(data.planets.Length);
+            foreach (PlanetData pd in data.planets)
+            {
+                if (pd is ColonizablePlanetData)
+                {
+                    planets.Add(new ColonizablePlanet((ColonizablePlanetData)pd, this));
+                }
+                else
+                {
+                    planets.Add(new Planet(pd, this));
+                }
+            }
+
 
             Render();
         }
@@ -90,6 +105,7 @@ namespace Assets.Scripts.GameModels.Astronomy
         }
 
         #endregion
+
         public void Render()
         {
             var prefab = Resources.Load("Galaxy Star System") as GameObject;
@@ -105,28 +121,21 @@ namespace Assets.Scripts.GameModels.Astronomy
         public void Generate(int numberOfPlanets)
         {
 
-            star = new Star();
-            star.system = this;
+            star = new Star(this);
 
+            if (numberOfPlanets < 1) return;
+
+            var pf = PlanetFactory.GetFactory();
             for (int i = 0; i < numberOfPlanets; i++)
             {
-                Planet firstPlanet = new Planet();
-                AddPlanet(firstPlanet);
+                planets.Add(pf.GetPlanet(this));
             }
-        }
-
-        public void AddPlanet(Planet planet)
-        {
-            planet.System = this;
-            planets.Add(planet);
-            systemSize += 1;
         }
 
         public void RemovePlanet(Planet planet)
         {
             planet.Remove();
             planets.Remove(planet);
-            systemSize -= 1;
         }
         #endregion
 

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Assets.Scripts.Save.Data;
+
 namespace Assets.Scripts.GameModels.Astronomy
 {
     public enum PlanetType
@@ -30,15 +32,25 @@ namespace Assets.Scripts.GameModels.Astronomy
             System = ss;
             Index = i;
             Type = t;
+
+            Name = $"Planet-{i}";
         }
 
-        public Planet()
+
+        #region Saves
+        public Planet(PlanetData pd, SolarSystem ss)
         {
+            Name = pd.name;
+            Index = pd.index;
+            Type = (PlanetType)pd.planetType;
+            System = ss;
         }
 
         internal void Remove()
         {
             System = null;
         }
+
+        #endregion
     }
 }

@@ -8,9 +8,14 @@ namespace Assets.Scripts.GameModels.Astronomy
     public class ColonizablePlanet : Planet
     {
         public Colony Colony { get; private set; }
-        public ColonizablePlanet() : base()
-        {
 
+        public ColonizablePlanet(SolarSystem ss, int i, PlanetType t) : base(ss, i, t)
+        {
+            Colony = new Colony();
+        }
+        public ColonizablePlanet(Save.Data.ColonizablePlanetData pd, SolarSystem ss) : base(pd, ss)
+        {
+            Colony = new Colony(pd.colony);
         }
     }
 }

@@ -111,7 +111,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 307, y: 10}
+  m_SizeDelta: {x: 307, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1340551573270557704
 CanvasRenderer:
@@ -188,6 +188,19 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &6996506389882360122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395411770062344668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb16cc4704c4212469623289d18ac162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 0}
 --- !u!114 &8921722913698487839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +213,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a567b3e589951d8498e87eac1b39e0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 4641908115836320951}
+  planetPanelPrefab: {fileID: 5078405114694049014, guid: 095604260ed2e89428f0f6b1c7729f41,
+    type: 3}
+--- !u!114 &1022225838570140849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395411769748190258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb16cc4704c4212469623289d18ac162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 2395411770062344668}
 --- !u!1001 &6728806759979410971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,6 +426,12 @@ PrefabInstance:
 --- !u!1 &2395411770062344668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8962075610256701383, guid: a533fba53c16b994e99be34c75302123,
+    type: 3}
+  m_PrefabInstance: {fileID: 6728806759979410971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2395411769748190258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8962075610405966377, guid: a533fba53c16b994e99be34c75302123,
     type: 3}
   m_PrefabInstance: {fileID: 6728806759979410971}
   m_PrefabAsset: {fileID: 0}

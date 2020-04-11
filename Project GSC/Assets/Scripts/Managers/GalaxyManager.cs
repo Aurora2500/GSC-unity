@@ -45,6 +45,7 @@ namespace Assets.Scripts.Managers
                 );
                 var availableLanes = ValidIndexLinks(ssPos);
                 SolarSystem ss = new SolarSystem($"Star-{i}", i, ssPos, galaxy, availableLanes);
+                ss.Generate(3);
                 galaxy.AddSolarSystem(ss);
 
                 yield return new WaitForFixedUpdate();

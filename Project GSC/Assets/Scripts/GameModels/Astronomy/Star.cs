@@ -6,5 +6,10 @@ using UnityEngine;
 public class Star
 {
 
-    public SolarSystem system { get;  set; }
+    public SolarSystem System { get;  private set; }
+
+    public Star(SolarSystem ss)
+    {
+        System = ss;
+    }
 }

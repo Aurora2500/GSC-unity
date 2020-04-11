@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 using Assets.Scripts.GameModels.Astronomy;
 using Assets.Scripts.UI;
@@ -27,7 +28,7 @@ namespace Assets.Scripts.Managers
         void Update()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !IsMouseOverObject())
             {
                 if (Physics.Raycast(ray, out RaycastHit hitInfo))
                 {
@@ -37,6 +38,11 @@ namespace Assets.Scripts.Managers
                     panelManager.OpenStarPanel(ss);
                 }
             }
+        }
+
+        bool IsMouseOverObject()
+        {
+            return EventSystem.current.IsPointerOverGameObject();
         }
     }
 }

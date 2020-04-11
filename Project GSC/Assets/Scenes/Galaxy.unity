@@ -2512,7 +2512,7 @@ MonoBehaviour:
   slotPanel: {fileID: 259217313}
   slotPrefab: {fileID: 8935806697656710915, guid: f5503c83965c7e24e82ea453b242ba14,
     type: 3}
-  gameController: {fileID: 0}
+  gameController: {fileID: 1966125021}
   inputField: {fileID: 1607547455}
 --- !u!1 &1506939306
 GameObject:

@@ -90,9 +90,9 @@ namespace Assets.Scripts.Mono
 
             #region scroll and zoom speed penalty
 
+            if (IsMouseOverObject()) return;
 
             zoomAmount = pos.z / minZoom;
-
 
             var scroll = Input.GetAxis("Mouse ScrollWheel");
             pos.z += scroll * zoomSensitivity;
