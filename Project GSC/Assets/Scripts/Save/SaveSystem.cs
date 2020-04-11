@@ -4,44 +4,48 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 using GSC;
+using Assets.Scripts.Save.Data;
 
-public static class SaveSystem
+namespace Assets.Scripts.Save
 {
-    public static void SaveGame(GameInstance game, string saveName)
+    public static class SaveSystem
     {
-        BinaryFormatter formatter = new BinaryFormatter();
+        public static void SaveGame(GameInstance game, string saveName)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + $"/saves/{saveName}.gsc";
-        FileStream stream = new FileStream(path, FileMode.Create);
+            string path = Application.persistentDataPath + $"/saves/{saveName}.gsc";
+            FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData(game);
+            GameData data = new GameData(game);
 
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
+            formatter.Serialize(stream, data);
+            stream.Close();
+        }
 
-    public static GameData LoadGame(string saveName)
-    {
-        string path = $"{Application.persistentDataPath}/saves/{saveName}.gsc";
-        BinaryFormatter formatter = new BinaryFormatter();
+        public static GameData LoadGame(string saveName)
+        {
+            string path = $"{Application.persistentDataPath}/saves/{saveName}.gsc";
+            BinaryFormatter formatter = new BinaryFormatter();
 
-        FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(path, FileMode.Open);
 
-        GameData data = formatter.Deserialize(stream) as GameData;
-        stream.Close();
+            GameData data = formatter.Deserialize(stream) as GameData;
+            stream.Close();
 
-        return data;
-    }
+            return data;
+        }
 
-    public static void DeleteGame(string saveName)
-    {
-        File.Delete($"{Application.persistentDataPath}/saves/{saveName}.gsc");
-    }
+        public static void DeleteGame(string saveName)
+        {
+            File.Delete($"{Application.persistentDataPath}/saves/{saveName}.gsc");
+        }
 
-    public static  FileInfo[] GetSaves()
-    {
-        DirectoryInfo saveDirectory = new DirectoryInfo($"{Application.persistentDataPath}/saves");
-        FileInfo[] saves = saveDirectory.GetFiles();
-        return saves;
+        public static FileInfo[] GetSaves()
+        {
+            DirectoryInfo saveDirectory = new DirectoryInfo($"{Application.persistentDataPath}/saves");
+            FileInfo[] saves = saveDirectory.GetFiles();
+            return saves;
+        }
     }
 }

@@ -1147,9 +1147,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 747663383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571769f2e93c7d141b3b01f596c403f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fc7e508cef6caa449db9c99ea772fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SSPanelPrefab: {fileID: 2395411770062344668, guid: aa54c9cc5b5d8e342887cef046424178,
+    type: 3}
 --- !u!1 &750104522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,7 +2512,7 @@ MonoBehaviour:
   slotPanel: {fileID: 259217313}
   slotPrefab: {fileID: 8935806697656710915, guid: f5503c83965c7e24e82ea453b242ba14,
     type: 3}
-  gameController: {fileID: 1966125020}
+  gameController: {fileID: 0}
   inputField: {fileID: 1607547455}
 --- !u!1 &1506939306
 GameObject:
@@ -2791,6 +2793,7 @@ MonoBehaviour:
   gc: {fileID: 1966125021}
   firstStarIndex: 0
   secondStarIndex: 0
+  panelManager: {fileID: 747663385}
 --- !u!4 &1672414536
 Transform:
   m_ObjectHideFlags: 0

@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Assets.Scripts.GameModels.Astronomy;
+using Assets.Scripts.UI.GamePanels;
+
 public class PanelManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject SSPanelPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +19,7 @@ public class PanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             KillAllPanels();
         }
@@ -25,5 +31,14 @@ public class PanelManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void OpenStarPanel(SolarSystem ss)
+    {
+        var ssPanel = Instantiate(SSPanelPrefab, transform);
+
+        var ssps = ssPanel.GetComponent<SolarSystemPanel>();
+
+        ssps.SetupPlanets(ss);
     }
 }

@@ -1,7 +1,9 @@
-﻿using Assets.Scripts.GameModels.Astronomy;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using Assets.Scripts.GameModels.Astronomy;
+using Assets.Scripts.Save.Data;
 
 namespace GSC
 {

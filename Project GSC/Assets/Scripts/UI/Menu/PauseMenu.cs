@@ -19,7 +19,7 @@ namespace Assets.Scripts.UI.Menu
         public GameObject slotPanel;
         public GameObject slotPrefab;
 
-        public GameObject gameController;
+        public GameController gameController;
         public TMP_InputField inputField;
 
         // Update is called once per frame
@@ -79,8 +79,6 @@ namespace Assets.Scripts.UI.Menu
 
         void KillSaves()
         {
-            GameObject[] children = new GameObject[slotPanel.transform.childCount];
-
             foreach (Transform child in slotPanel.transform)
             {
                 Destroy(child.gameObject);
@@ -89,7 +87,7 @@ namespace Assets.Scripts.UI.Menu
         #endregion
         public void NewSave()
         {
-            gameController.GetComponent<GameController>().Save(inputField.text);
+            gameController.Save(inputField.text);
             DisplaySaves();
         }
 

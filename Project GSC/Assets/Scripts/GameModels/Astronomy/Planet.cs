@@ -15,12 +15,14 @@ namespace Assets.Scripts.GameModels.Astronomy
 
     public class Planet
     {
+        public string Name { get; private set; }
+
         public int Index { get; private set; }
         public SolarSystem System { get; set; }
+        public int SystemIndex { get => System.Index; }
 
         public PlanetType Type { get; private set; }
 
-        public virtual bool IsColonizable { get => false; }
 
 
         public Planet(SolarSystem ss, int i, PlanetType t)

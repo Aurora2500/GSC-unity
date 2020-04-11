@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.GameModels.Colonies;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +7,7 @@ namespace Assets.Scripts.GameModels.Astronomy
 {
     public class ColonizablePlanet : Planet
     {
-        public override bool IsColonizable { get => true; }
-
+        public Colony Colony { get; private set; }
         public ColonizablePlanet() : base()
         {
 
